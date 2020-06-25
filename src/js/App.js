@@ -1,5 +1,15 @@
 import "../sass/all.scss";
 
-const App = () => <h1>DUPA</h1>;
+const allCups = document.querySelectorAll(".cups");
 
-ReactDOM.render(<App />, document.getElementById("app"));
+allCups.forEach((el) => {
+  el.addEventListener("click", function () {
+    console.log("click");
+    let level = Number(this.getAttribute("level"));
+    level += 24;
+    if (level <= 96) {
+      this.style.backgroundPosition = "0" + level + "%";
+    }
+    this.setAttribute("poziom", level);
+  });
+});
